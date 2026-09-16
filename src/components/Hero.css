@@ -1,0 +1,296 @@
+.hero {
+  position: relative;
+  padding: calc(var(--nav-h) + 72px) 0 0;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  animation: float-slow 18s var(--ease-out) infinite;
+}
+
+.hero-blob-a {
+  width: 420px;
+  height: 420px;
+  top: -120px;
+  left: -80px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 55%, transparent), transparent 70%);
+}
+
+.hero-blob-b {
+  width: 380px;
+  height: 380px;
+  top: 40px;
+  right: -60px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 45%, transparent), transparent 70%);
+  animation-delay: -6s;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 72%);
+  opacity: 0.7;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-copy {
+  max-width: 640px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  /* 用 backwards 而不是 both：动画结束后交还控制权，hover 的 transform 才生效 */
+  animation: fade-up 0.7s var(--ease-out) backwards;
+}
+
+.hero-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse-ring 2.4s infinite;
+}
+
+.hero-name {
+  margin: 18px 0 6px;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.hero-name span {
+  display: inline-block;
+  animation: fade-up 0.9s var(--ease-out) backwards;
+  animation-delay: calc(120ms + var(--i) * 110ms);
+  transition: transform 0.45s var(--ease-out), color 0.45s var(--ease-out);
+}
+
+.hero-name span:hover {
+  color: var(--accent);
+  transform: translateY(-6px);
+}
+
+.hero-role {
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+  margin-bottom: 22px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: var(--accent);
+}
+
+.hero-role-prefix {
+  color: var(--text-dim);
+}
+
+.hero-caret {
+  display: inline-block;
+  width: 8px;
+  height: 1.15em;
+  margin-left: 4px;
+  background: var(--accent);
+  animation: caret 1.05s steps(1) infinite;
+}
+
+.hero-intro {
+  max-width: 56ch;
+  color: var(--text-muted);
+  font-size: 16.5px;
+  animation: fade-up 0.9s var(--ease-out) 0.3s backwards;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 26px;
+  animation: fade-up 0.9s var(--ease-out) 0.42s backwards;
+}
+
+.hero-tags {
+  animation: fade-up 0.9s var(--ease-out) 0.54s backwards;
+}
+
+/* 右侧名片 */
+.hero-card {
+  padding: 26px 24px;
+  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+  animation: fade-up 1s var(--ease-out) 0.36s backwards;
+}
+
+.hero-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.avatar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  flex: none;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(140deg, var(--accent), var(--accent-2));
+  color: #fff;
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-initial {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.hero-card-name {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.hero-card-title {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.hero-facts {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.hero-fact {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.hero-fact dt {
+  color: var(--text-dim);
+}
+
+.hero-fact dd {
+  margin: 0;
+  font-weight: 500;
+  text-align: right;
+}
+
+.hero-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.hero-card-link span {
+  transition: transform 0.35s var(--ease-out);
+}
+
+.hero-card-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+/* 统计条 */
+.hero-stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 72px;
+  border-top: 1px solid var(--border);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 26px 4px 34px;
+  animation: fade-up 0.9s var(--ease-out) 0.66s backwards;
+}
+
+.hero-stat-value {
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.hero-stat-value em {
+  font-style: normal;
+  margin-left: 4px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-card {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: calc(var(--nav-h) + 44px);
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 48px;
+  }
+
+  .hero-stat {
+    padding: 18px 0 22px;
+  }
+}

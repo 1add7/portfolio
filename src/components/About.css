@@ -1,0 +1,104 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.95fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.about-copy {
+  display: grid;
+  gap: 18px;
+  color: var(--text-muted);
+  font-size: 16.5px;
+}
+
+.about-goal {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+
+.about-goal-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+}
+
+.about-goal strong {
+  font-size: 15.5px;
+  color: var(--text);
+}
+
+.about-card {
+  padding: 24px;
+}
+
+.about-card + .about-card {
+  margin-top: 18px;
+}
+
+.about-school {
+  margin: 12px 0 4px;
+  font-size: 19px;
+}
+
+.about-major {
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.about-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.about-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-size: 14px;
+}
+
+.about-list span {
+  color: var(--text-dim);
+}
+
+.about-now {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  font-size: 14.5px;
+  color: var(--text-muted);
+}
+
+.about-now li {
+  position: relative;
+  padding-left: 20px;
+}
+
+.about-now li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

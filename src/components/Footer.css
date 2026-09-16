@@ -1,0 +1,22 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0 40px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 13.5px;
+  color: var(--text-dim);
+}
+
+.footer-inner a {
+  transition: color 0.3s var(--ease-out);
+}
+
+.footer-inner a:hover {
+  color: var(--accent);
+}

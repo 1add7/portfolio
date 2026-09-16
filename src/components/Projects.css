@@ -1,0 +1,115 @@
+.project-card {
+  padding: 32px;
+}
+
+.project-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.project-kind {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.project-name {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+}
+
+.project-tagline {
+  margin-top: 6px;
+  color: var(--text-muted);
+}
+
+.project-mark {
+  font-family: var(--font-mono);
+  font-size: 30px;
+  color: var(--text-dim);
+  opacity: 0.6;
+  transition: transform 0.5s var(--ease-out), color 0.5s var(--ease-out), opacity 0.5s var(--ease-out);
+}
+
+.project-card:hover .project-mark {
+  transform: translateY(-4px) rotate(-6deg);
+  color: var(--accent);
+  opacity: 1;
+}
+
+.project-stack {
+  margin: 22px 0 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.project-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px 32px;
+}
+
+.project-highlights li {
+  position: relative;
+  padding-left: 42px;
+}
+
+.project-index {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  transition: transform 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+}
+
+.project-highlights li:hover .project-index {
+  transform: translateY(-3px);
+  border-color: var(--accent-line);
+}
+
+.project-highlights h4 {
+  margin-bottom: 6px;
+  font-size: 15.5px;
+}
+
+.project-highlights p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.projects-note {
+  margin-top: 20px;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.projects-note a {
+  margin: 0 4px;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent-line);
+}
+
+@media (max-width: 860px) {
+  .project-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 22px;
+  }
+}
