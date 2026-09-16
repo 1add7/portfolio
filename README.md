@@ -66,7 +66,20 @@ docs/
 
 ## 部署
 
-仓库已配置 GitHub Actions（`.github/workflows/deploy.yml`）：推送到 `main` 分支后自动执行 `npm ci && npm run build`，并把 `dist/` 发布到 GitHub Pages。
+线上地址：<https://1add7.github.io/portfolio/>
+
+采用 **gh-pages 分支发布**（GitHub Pages 的 Source 指向 `gh-pages` 分支）。以后更新只需一条命令：
+
+```bash
+npm run deploy
+```
+
+它会先构建，再把 `dist/` 的内容推送到 `gh-pages` 分支，约半分钟后线上生效。
+
+> **为什么不用 GitHub Actions**：该账号的 Actions 目前被 billing 限制锁定，运行记录里提示
+> *"The job was not started because your account is locked due to a billing issue."*
+> 分支发布不消耗 Actions 额度，效果一样。等这个问题解决后，可以再换回 Actions 自动部署
+> （推送到 `main` 即自动发布）。
 
 其它静态托管同样可用 —— Vercel / Netlify / Cloudflare Pages：Build Command 填 `npm run build`，Output Directory 填 `dist`。
 
