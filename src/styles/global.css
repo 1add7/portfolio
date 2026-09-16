@@ -1,20 +1,30 @@
-/* ---------- 设计令牌 ---------- */
+/* ---------- 设计令牌 ----------
+   亮色：黄色主调（参考扣子的黄）
+   暗色：灰阶主调
+   变量分工：
+     --accent       贴在背景上的“品牌色文字/描边”（要保证对比度）
+     --accent-fill  实心填充（按钮、徽标、头像），配 --on-accent 文字
+*/
 :root {
-  --bg: #fbfbfc;
-  --bg-soft: #f3f4f7;
+  --bg: #fdfbf4;
+  --bg-soft: #f7f1e1;
   --surface: #ffffff;
   --surface-strong: #ffffff;
-  --text: #14161a;
-  --text-muted: #5b6270;
-  --text-dim: #6f7784;
-  --border: rgba(20, 22, 26, 0.09);
-  --border-strong: rgba(20, 22, 26, 0.16);
-  --accent: #4f46e5;
-  --accent-2: #0ea5e9;
-  --accent-soft: rgba(79, 70, 229, 0.1);
-  --accent-line: rgba(79, 70, 229, 0.35);
-  --shadow-sm: 0 1px 2px rgba(16, 18, 23, 0.04), 0 10px 30px -18px rgba(16, 18, 23, 0.3);
-  --shadow-md: 0 2px 4px rgba(16, 18, 23, 0.04), 0 24px 48px -28px rgba(16, 18, 23, 0.35);
+  --text: #17160f;
+  --text-muted: #57513f;
+  --text-dim: #6b6553;
+  --border: rgba(23, 22, 15, 0.1);
+  --border-strong: rgba(23, 22, 15, 0.18);
+  --accent: #8a6400;
+  --accent-2: #ff9f1c;
+  --accent-fill: #ffd44d;
+  --accent-fill-strong: #ffc61a;
+  --on-accent: #1c1604;
+  --accent-soft: rgba(255, 205, 50, 0.22);
+  --accent-line: rgba(170, 126, 0, 0.42);
+  --accent-glow: rgba(255, 190, 20, 0.55);
+  --shadow-sm: 0 1px 2px rgba(74, 60, 12, 0.05), 0 10px 30px -18px rgba(74, 60, 12, 0.32);
+  --shadow-md: 0 2px 4px rgba(74, 60, 12, 0.05), 0 24px 48px -28px rgba(74, 60, 12, 0.38);
   --radius-sm: 10px;
   --radius: 16px;
   --radius-lg: 22px;
@@ -28,21 +38,25 @@
 }
 
 :root[data-theme='dark'] {
-  --bg: #0c0d11;
-  --bg-soft: #12141a;
-  --surface: #14161d;
-  --surface-strong: #171a22;
-  --text: #f2f4f8;
-  --text-muted: #a2aab8;
-  --text-dim: #767f8f;
+  --bg: #0f1012;
+  --bg-soft: #17191c;
+  --surface: #15171a;
+  --surface-strong: #1a1d20;
+  --text: #f2f4f7;
+  --text-muted: #a9afb8;
+  --text-dim: #838992;
   --border: rgba(255, 255, 255, 0.09);
   --border-strong: rgba(255, 255, 255, 0.18);
-  --accent: #8b8bff;
-  --accent-2: #38bdf8;
-  --accent-soft: rgba(139, 139, 255, 0.14);
-  --accent-line: rgba(139, 139, 255, 0.4);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px -18px rgba(0, 0, 0, 0.8);
-  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.45), 0 30px 60px -30px rgba(0, 0, 0, 0.9);
+  --accent: #dfe3e8;
+  --accent-2: #9aa2ad;
+  --accent-fill: #e9ecef;
+  --accent-fill-strong: #ffffff;
+  --on-accent: #131417;
+  --accent-soft: rgba(255, 255, 255, 0.08);
+  --accent-line: rgba(255, 255, 255, 0.28);
+  --accent-glow: rgba(255, 255, 255, 0.22);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45), 0 10px 30px -18px rgba(0, 0, 0, 0.85);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.5), 0 30px 60px -30px rgba(0, 0, 0, 0.9);
   color-scheme: dark;
 }
 
@@ -121,8 +135,8 @@ code {
 }
 
 ::selection {
-  background: var(--accent);
-  color: #fff;
+  background: var(--accent-fill);
+  color: var(--on-accent);
 }
 
 :focus-visible {
@@ -264,13 +278,14 @@ code {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 12px 26px -14px var(--accent);
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  box-shadow: 0 12px 26px -14px var(--accent-glow);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 18px 34px -14px var(--accent);
+  background: var(--accent-fill-strong);
+  box-shadow: 0 18px 34px -14px var(--accent-glow);
 }
 
 .btn-ghost {

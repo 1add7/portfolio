@@ -1,6 +1,8 @@
 # 殷嘉琦 · 个人主页 / 网站简历
 
-> 在线预览：<https://1add7.github.io/portfolio/>
+> 在线预览：<https://1add7.github.io/resume/>
+>
+> 备用地址：<https://1add7.github.io/portfolio/>
 
 ![首页预览](docs/preview.png)
 
@@ -74,7 +76,16 @@ docs/
 npm run deploy
 ```
 
-它会先构建，再把 `dist/` 的内容推送到 `gh-pages` 分支，约半分钟后线上生效。
+它会先构建，再把 `dist/` 的内容推送到 `gh-pages` 分支，**并同步到本仓库配置的所有 remote**
+（目前是 `resume` 和 `portfolio` 两个仓库），约半分钟后两个地址都会生效。
+
+## 配色
+
+- **亮色主题**：黄色主调（参考扣子），暖白背景 `#fdfbf4` + 品牌黄 `#ffd44d`，按钮为黄底深色字
+- **暗色主题**：灰阶主调，背景 `#0f1012`，强调色为浅灰 `#dfe3e8`，按钮为浅灰底深色字
+
+两套主题下所有正文/次要文字/链接文字的对比度都通过了 WCAG AA 4.5:1。切换逻辑在
+`src/hooks/useTheme.ts`，颜色令牌集中在 `src/styles/global.css` 顶部。
 
 > **为什么不用 GitHub Actions**：该账号的 Actions 目前被 billing 限制锁定，运行记录里提示
 > *"The job was not started because your account is locked due to a billing issue."*

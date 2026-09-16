@@ -15,7 +15,7 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(70px);
-  opacity: 0.5;
+  opacity: 0.55;
   animation: float-slow 18s var(--ease-out) infinite;
 }
 
@@ -24,7 +24,7 @@
   height: 420px;
   top: -120px;
   left: -80px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 55%, transparent), transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-fill) 75%, transparent), transparent 70%);
 }
 
 .hero-blob-b {
@@ -32,7 +32,7 @@
   height: 380px;
   top: 40px;
   right: -60px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 45%, transparent), transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 40%, transparent), transparent 70%);
   animation-delay: -6s;
 }
 
@@ -72,7 +72,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #22c55e;
+  background: var(--accent-fill-strong);
   animation: pulse-ring 2.4s infinite;
 }
 
@@ -164,8 +164,8 @@
   flex: none;
   border-radius: 50%;
   overflow: hidden;
-  background: linear-gradient(140deg, var(--accent), var(--accent-2));
-  color: #fff;
+  background: linear-gradient(140deg, var(--accent-fill), var(--accent-2));
+  color: var(--on-accent);
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
